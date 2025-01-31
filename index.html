@@ -7,15 +7,31 @@
 </head>
 <body>
     <h1>Digital Media Programming</h1>
+    <h3>Welcome to the experiment page!</h3>
+    <p id="jim"></p>
+    <p id="lvl"></p>
 
     <script>
 
-    //page greeting
-    document.write("Hello! Welcome to my page.");
-	
-     //this is an object variable
-    const person = {firstName: "Jimothy" , lastName: "JavaScript" , age: 21};
+        //page greeting
+        document.write("He is a novice programmer.");
+
+        //this is an object variable
+        const person = {firstName: "Jimothy" , lastName: "JavaScript" , age: 21};
+
+        document.getElementById("jim").innerHTML =
+        person.firstName + " " + person.lastName + " is " + person.age + " years old.";
+
+        //this is a global variable and a string variable
+        var skill = "Beginner";
+        console.log(skill);
+
+        {
+            let skilllvl = x + y;x = 1;y = 1
+            document.getElementById("lvl").innerHTML = "His skill level is " + skilllvl; 
+        }
 
     </script>
+
 </body>
 </html>
