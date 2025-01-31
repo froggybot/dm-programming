@@ -6,12 +6,27 @@
     <title></title>
 </head>
 <body>
-    <h1>Digital Media Programming</h1>
+   <h1>Digital Media Programming</h1>
     <script>
-    console.log(
-    "Hi again! If you can see this, what is your favorite ice cream flavor?"
-);
-document.write("Hello! This is the homepage.");
+
+    //page greeting
+    document.write("Hello! Welcome to my page.");
+   
+    //this is an object variable
+    const person = {firstName: "Jimothy" , lastName: "JavaScript" , age: 21};
+    console.log(person);
+    
+    //this is a global variable and a string variable
+    var skill = "Beginner";
+    console.log(skill);
+	
+    //this is a block variable
+    {
+    	let skillLvl = 1;
+        let skillLvl = skillLvl + 10
+        console.log(skillLvl)
+    }
+
     </script>
 </body>
 </html>
