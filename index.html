@@ -9,6 +9,7 @@
     <h1>Digital Media Programming</h1>
     <h3>Welcome to the experiment page!</h3>
     <p id="jim"></p>
+    <button id="jimSkill">His skill level is...</button>
     <p id="lvl"></p>
 
     <script>
@@ -16,16 +17,35 @@
         //page greeting
         document.write("He is a novice programmer.");
 
+        // this is an object constructor function
+        function Person(first, last, age, skill) 
+        {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.skill = skill;
+        }
+
         //this is an object variable
-        const person = {firstName: "Jimothy" , lastName: "JavaScript" , age: 21};
+        const jimJava = new Person ("Jimothy", "JavaScript", 21, "beginner");
+       
+        //adding a method to the object constructor function
+        Person.prototype.fullName = function () 
+        {
+            return this.firstName + " " + this.lastName;
+        }
 
+        //display jimjava introduction
         document.getElementById("jim").innerHTML =
-        person.firstName + " " + person.lastName + " is " + person.age + " years old.";
+        jimJava.fullName() + " is " + person.age + " years old.";
 
-        //this is a global variable and a string variable
-        var skill = "Beginner Level";
-        console.log(skill);
-
+        
+        //event! onclick button will display jimJava`s skill level
+        document.getElementById('jimSkill').onclick = function() 
+        {
+            document.getElementById('jimSkill').innerHTML = jimJava.skill();
+        }
+       
         //this is a block variable and arithmetic
         {
             let 
