@@ -21,6 +21,17 @@
     <br>
     <p id="introducing"></p>
     <p>I've only been coding for <span id="laniExp"></span> years.</p>
+    <br>
+    <p>What about you reader, how long have you been coding?</p>
+    <label for="readerExp"> In years? </label>
+    <input type="text" id="readerExp">
+    <button onclick="reactToReader()">Submit</button>
+    <p id="result"></p>
+    <p>Are you going to keep coding?</p>
+    <input type="text" id="readerResponse">
+    <button type="button" onclick="respondToReader2()">Submit</button>
+    <p id="response"></p>
+
 
     <script>
 
@@ -44,8 +55,12 @@
 
         //display jimjava introduction
         document.getElementById("jim").innerHTML =
-        jimJava.fullName() + " is " + jimJava.age + " years old.";
+        `${jimJava.fullName()} is ${jimJava.age} years old.`;
         console.log(jimJava)
+        
+        //using the number method valueOf()
+        document.getElementById("jimExp").innerHTML = 
+        (20 + 9).valueOf();
         
         /*events, onclick button will display jimJavas skill level,
         onmouseout and onmouseover reactions will appear
@@ -54,6 +69,7 @@
         function skillBtn() 
         {
         let text = jimJava.skill;
+        //using the string method toUpperCase()
 		let emphasis = text.toUpperCase();
         document.getElementById("jimSkill").innerHTML = emphasis + "!!!";
         }
@@ -70,25 +86,79 @@
         document.getElementById("reaction").innerHTML = "Oh. Oh wow... O_O";
         }
 
-        function expAdd(x, y)
-        {
-            return x + y;
-        }
-
-        let jimJavaExp = expAdd(20, 9)
-        document.getElementById("jimExp").innerHTML = jimJavaExp
-
-        //adding another object variable using the object constructor
+		//adding another object variable using the object constructor
         const laniKen = new Person ("Lani", "Kennedy", 21, "novice");
         console.log(laniKen)
 
+        //concatenated string variable
+        let laniIntro =
+        `I'm ${laniKen.fullName()}, the creator of this page! I'm still a ${laniKen.skill}.`
+        //output concatenated string to page and type to console
         document.getElementById("introducing").innerHTML = 
-        "I'm " + laniKen.fullName() + ", the creator of this page! I am still a " + laniKen.skill + "."
+        laniIntro;
+        console.log(typeof laniIntro)
 
-        let laniKenExp = expAdd(1, 0.5)
-        document.getElementById("laniExp").innerHTML = laniKenExp
+		//using the number method valueOf()
+        document.getElementById("laniExp").innerHTML = 
+        (1 + 0.5).valueOf();
+        
+        //reacting to readers response using switch statement
+        function reactToReader() 
+        {
+        const input = document.getElementById('readerExp').value;
+        let result;
 
-        console.log("Hi reader! How long have you been coding?")
+            switch (input) 
+            {
+                case '0.5':
+                case '1':
+                case '1.5':
+                case '2':
+                    result = `Oh, fun! You're sort of a beginner like me. :D`;
+                    break;
+                case '2.5':
+                case '3':
+                case '3.5':
+                case '4':
+                case '4.5':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case '10':
+                    result = `Wow, you've been doing this a while, huh? ^-^`;
+                    break;
+                default:
+                    result = 'Cool! Good for you reader B)';
+            }
+
+        document.getElementById('result').innerText = result;
+        }
+
+        //reacting to readers second response using if else statement
+        function respondToReader2() 
+        {
+        const readerResponse = document.getElementById('readerResponse').value;
+        let response = document.getElementById('response');
+
+            if (readerResponse === "No") 
+            {
+            response.textContent = ":( Yeah I get it. Coding is hard T-T";
+            response.style.color = "blue";
+            } 
+            else if (readerResponse === "no") 
+            {
+            response.textContent = ":( Yeah I get it. Coding is hard T-T";
+            response.style.color = "blue";
+            }
+            else 
+            {
+            response.textContent = "Best of luck! :)";
+            response.style.color = "green";
+            }
+        
+        }
 
     </script>
 
