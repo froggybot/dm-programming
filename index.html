@@ -17,6 +17,16 @@
         	text-align: center;
             color: Indigo;
         }
+        .mainhead {
+        	background-color: #fffffa;
+            border: 4px solid LavenderBlush;
+            padding: 10px;
+            text-align: center;
+            text-shadow: 0px 3px 2px Thistle;
+            font-size: 230%;
+            color: Indigo;
+            box-shadow: 0px 5px 3px Thistle;
+        }
 	</style>
 </head>
 <body>
@@ -24,7 +34,7 @@
         <div class="main">
             <h1 class="headin">Digital Media Programming</h1>
 
-            <h2 class="headin">Welcome to the experiment page!</h2>
+            <h2 class="headin2">Welcome to the experiment page!</h2>
 
             <p id="jim"></p>
             <p>He has been coding for <span id="jimExp"></span> years.</p>
@@ -48,7 +58,7 @@
             <button type="button" onclick="respondToReader2()">Submit</button>
             <p id="response"></p>
             <br>
-            <h3 class="headin">Coder Review</h3>
+            <h3 class="headin3">Coder Review</h3>
             <p id="coderReview"></p>
         </div>
     </div>
@@ -63,8 +73,14 @@
         const content = document.querySelector(".main");
         content.classList.add("maincont");
         
-        const content = document.querySelector(".headin");
-        content.classList.add("headings");
+        const head = document.querySelector(".headin");
+        head.classList.add("mainhead");
+        const head2 = document.querySelector(".headin2");
+        head2.classList.add("headings");
+        const head3 = document.querySelector(".headin3");
+        head3.classList.add("headings");
+        
+        
         
         // this is an object constructor function
         function Person(first, last, age, skill) 
