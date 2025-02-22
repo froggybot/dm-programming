@@ -3,38 +3,53 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>DM Programming</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Digital Media Programming</h1>
+    <div class="bckgrd">
+        <div class="main">
+            <h1>Digital Media Programming</h1>
 
-    <h3>Welcome to the experiment page!</h3>
+            <h2>Welcome to the experiment page!</h2>
 
-    <p id="jim"></p>
-    <p>He has been coding for <span id="jimExp"></span> years.</p>
+            <p id="jim"></p>
+            <p>He has been coding for <span id="jimExp"></span> years.</p>
 
-    <button id="jimSkill">His skill level is...</button>
-    <br>
-    <br>
-    <br>
-	<p id="reaction"></p>
-    <br>
-    <p id="introducing"></p>
-    <p>I've only been coding for <span id="laniExp"></span> years.</p>
-    <br>
-    <p>What about you reader, how long have you been coding?</p>
-    <label for="readerExp"> In years? </label>
-    <input type="text" id="readerExp">
-    <button onclick="reactToReader()">Submit</button>
-    <p id="result"></p>
-    <p>Are you going to keep coding?</p>
-    <input type="text" id="readerResponse">
-    <button type="button" onclick="respondToReader2()">Submit</button>
-    <p id="response"></p>
+            <button id="jimSkill">His skill level is...</button>
+            <br>
+            <br>
+            <br>
+	        <p id="reaction"></p>
+            <br>
+            <p id="introducing"></p>
+            <p>I've only been coding for <span id="laniExp"></span> years.</p>
+            <br>
+            <p>What about you reader, how long have you been coding?</p>
+            <label for="readerExp"> In years? </label>
+            <input type="text" id="readerExp">
+            <button onclick="reactToReader()">Submit</button>
+            <p id="result"></p>
+            <p>Are you going to keep coding?</p>
+            <input type="text" id="readerResponse">
+            <button type="button" onclick="respondToReader2()">Submit</button>
+            <p id="response"></p>
+            <br>
+            <h3>Coder Review</h3>
+            <p id="coderReview"></p>
+        </div>
+    </div>
+    
 
 
     <script>
+        //css change using js
+        const body = document.querySelector(".bckgrd")
+        body.style.backgroundColor = "Lavender";
 
+        const content = document.querySelector(".main")
+        content.classList.add(.maincont)
+        
         // this is an object constructor function
         function Person(first, last, age, skill) 
         {
@@ -159,7 +174,32 @@
             }
         
         }
+        
+		//adding another object variable using the object constructor
+        const readerRead = new Person ("Reader", " ", "unknown", "unknown");
 
+        {
+            let coderArray = [jimJava, laniKen, readerRead];
+            let index = 0;
+            let txt = "";
+
+            while (index < coderArray.length) 
+            {
+                const obj = coderArray[index];
+  
+                for (let key in obj) 
+                {
+                    if (obj.hasOwnProperty(key)) 
+                    {
+                        txt += obj[key] + " // ";          
+                    }
+                }
+                txt = txt + "<br>"
+                document.getElementById('coderReview').innerHTML = txt;
+                index++;
+            }
+        }
+       
     </script>
 
 </body>
