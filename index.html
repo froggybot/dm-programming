@@ -4,14 +4,27 @@
 <head>
     <meta charset="utf-8" />
     <title>DM Programming</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+		.maincont {
+          background-color: Ivory;
+          margin: auto;
+          width: 50%;
+          border: 10px double LemonChiffon;
+          padding: 30px;
+          font-family: "Courier New", monospace;
+		}
+        .headings {
+        	text-align: center;
+            color: Indigo;
+        }
+	</style>
 </head>
 <body>
     <div class="bckgrd">
         <div class="main">
-            <h1>Digital Media Programming</h1>
+            <h1 class="headin">Digital Media Programming</h1>
 
-            <h2>Welcome to the experiment page!</h2>
+            <h2 class="headin">Welcome to the experiment page!</h2>
 
             <p id="jim"></p>
             <p>He has been coding for <span id="jimExp"></span> years.</p>
@@ -35,7 +48,7 @@
             <button type="button" onclick="respondToReader2()">Submit</button>
             <p id="response"></p>
             <br>
-            <h3>Coder Review</h3>
+            <h3 class="headin">Coder Review</h3>
             <p id="coderReview"></p>
         </div>
     </div>
@@ -43,12 +56,15 @@
 
 
     <script>
-        //css change using js
-        const body = document.querySelector(".bckgrd")
+        //css change using js and variables
+        const body = document.querySelector(".bckgrd");
         body.style.backgroundColor = "Lavender";
 
-        const content = document.querySelector(".main")
-        content.classList.add(.maincont)
+        const content = document.querySelector(".main");
+        content.classList.add("maincont");
+        
+        const content = document.querySelector(".headin");
+        content.classList.add("headings");
         
         // this is an object constructor function
         function Person(first, last, age, skill) 
@@ -178,6 +194,7 @@
 		//adding another object variable using the object constructor
         const readerRead = new Person ("Reader", " ", "unknown", "unknown");
 
+        //using for in loop inside a while loop to display array of person object variables
         {
             let coderArray = [jimJava, laniKen, readerRead];
             let index = 0;

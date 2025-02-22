@@ -4,4 +4,9 @@
 	width: 80%;
 	border: 10px ridge LemonChiffon;
 	padding: 30px;
+	font-family: "Courier New", monospace;
+}
+.headings {
+    text-align: center;
+    color: Indigo;
 }
