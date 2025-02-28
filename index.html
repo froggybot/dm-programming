@@ -27,6 +27,9 @@
             color: Indigo;
             box-shadow: 0px 5px 3px Thistle;
         }
+        .coderrev {
+        	text-align: center;
+        }
 	</style>
 </head>
 <body>
@@ -47,6 +50,7 @@
             <br>
             <p id="introducing"></p>
             <p>I've only been coding for <span id="laniExp"></span> years.</p>
+            <p>I have experience with <span id="laniCodeLangs"></span>.</p>
             <br>
             <p>What about you reader, how long have you been coding?</p>
             <label for="readerExp"> In years? </label>
@@ -59,7 +63,7 @@
             <p id="response"></p>
             <br>
             <h3 class="headin3">Coder Review</h3>
-            <p id="coderReview"></p>
+            <p id="coderReview" class="coderRevi"></p>
         </div>
     </div>
     
@@ -80,6 +84,10 @@
         const head3 = document.querySelector(".headin3");
         head3.classList.add("headings");
         
+        const codeRev = document.querySelector(".coderRevi");
+       codeRev.classList.add("coderrev");
+        
+        
         
         
         // this is an object constructor function
@@ -94,7 +102,7 @@
         //this is an object variable
         const jimJava = new Person ("Jimothy", "JavaScript", 52, "professional");
        
-        //adding a method to the object constructor function
+        //adding an object method to the object constructor function
         Person.prototype.fullName = function () 
         {
             return this.firstName + " " + this.lastName;
@@ -148,6 +156,11 @@
 		//using the number method valueOf()
         document.getElementById("laniExp").innerHTML = 
         (1 + 0.5).valueOf();
+        
+        //this is an array
+        const laniLangs = ["HTML"," CSS"," JavaScript"];
+        //outputting and displaying coding languages to page using toString() array method 
+        document.getElementById("laniCodeLangs").innerHTML = laniLangs.toString();
         
         //reacting to readers response using switch statement
         function reactToReader() 
@@ -232,6 +245,7 @@
                 index++;
             }
         }
+       
        
     </script>
 
