@@ -27,7 +27,11 @@
             color: Indigo;
             box-shadow: 0px 5px 3px Thistle;
         }
-        .coderrev {
+        .center {
+            background-color: #fffffa;
+            border: 3px solid LavenderBlush;
+            padding: 8px;
+            box-shadow: 0px 3px 2px Thistle;
         	text-align: center;
         }
 	</style>
@@ -64,6 +68,9 @@
             <br>
             <h3 class="headin3">Coder Review</h3>
             <p id="coderReview" class="coderRevi"></p>
+            <br>
+            <h3 class="headin4">Page Info</h3>
+            <p id="pageInfo" class="pageInf"></p>
         </div>
     </div>
     
@@ -83,9 +90,13 @@
         head2.classList.add("headings");
         const head3 = document.querySelector(".headin3");
         head3.classList.add("headings");
+        const head4 = document.querySelector(".headin4");
+        head4.classList.add("headings");
         
         const codeRev = document.querySelector(".coderRevi");
-       codeRev.classList.add("coderrev");
+        codeRev.classList.add("center");
+        const pageInf = document.querySelector(".pageInf");
+        pageInf.classList.add("center");
         
         
         
@@ -245,7 +256,19 @@
                 index++;
             }
         }
-       
+        
+        //adding a new object and displaying objects properties using values() object method
+        {
+            let thisPage = {
+            name: "Lani's Digital Media Programming",
+            purpose: "experimental",
+            status: "in progress",
+            creationDate: "made in 2025"
+            };
+
+            let txt = Object.values(thisPage);
+            document.getElementById('pageInfo').innerHTML = txt;
+        }
        
     </script>
 
