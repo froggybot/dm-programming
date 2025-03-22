@@ -60,6 +60,7 @@ const game = () => {
     const compareHands = (playerChoice, computerChoice) => {
         //update message
         const winner = document.querySelector(".winner");
+        //checking for tie
         if (playerChoice === computerChoice) {
             winner.textContent = "It is a tie!";
             return;
