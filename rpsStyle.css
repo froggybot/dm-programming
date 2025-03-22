@@ -6,12 +6,12 @@
 
 section {
 	height: 100vh;
-	background-color: maroon;
-	font-family: sans-serif;
+	background-color: LemonChiffon;
+	font-family: "Courier New", monospace;
 }
 
 .score {
-	color: ivory;
+	color: Indigo;
 	height: 20vh;
 	display: flex;
 	justify-content: space-around;
@@ -27,7 +27,7 @@ section {
 }
 
 .intro {
-	color: ivory;
+	color: Indigo;
 	height: 50vh;
 	display: flex;
 	flex-direction: column;
@@ -40,15 +40,16 @@ section {
 	font-size: 50px;
 }
 .intro button,
-.match button {
-	width: 150px;
+.match button,
+.options button {
+	width: 125px;
 	height: 50px;
 	background:none;
-	border: 3px solid ivory;
-	border-radius: 4px;
-	color: ivory;
+	border: 5px solid Lavender;
+	border-radius: 5px;
+	color: Indigo;
 	font-size: 20px;
-	background-color: olive;
+	background-color: Ivory;
 	cursor: pointer;
 }
 
@@ -60,7 +61,7 @@ section {
 	transition: opacity 0.5s ease 0.5s;
 }
 .winner {
-	color: ivory;
+	color: Indigo;
 	text-align: center;
 	font-size: 50px;
 }
