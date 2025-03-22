@@ -1,0 +1,141 @@
+﻿* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+section {
+	height: 100vh;
+	background-color: maroon;
+	font-family: sans-serif;
+}
+
+.score {
+	color: ivory;
+	height: 20vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+.score h2 {
+	font-size: 30px;
+}
+.score p {
+	text-align: center;
+	padding: 10px;
+	font-size: 25px;
+}
+
+.intro {
+	color: ivory;
+	height: 50vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	transition: opacity 0.5s ease;
+}
+
+.intro h1 {
+	font-size: 50px;
+}
+.intro button,
+.match button {
+	width: 150px;
+	height: 50px;
+	background:none;
+	border: 3px solid ivory;
+	border-radius: 4px;
+	color: ivory;
+	font-size: 20px;
+	background-color: olive;
+	cursor: pointer;
+}
+
+.match {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transition: opacity 0.5s ease 0.5s;
+}
+.winner {
+	color: ivory;
+	text-align: center;
+	font-size: 50px;
+}
+
+.hands, 
+.options {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.player-hand {
+	transform: rotateY(180deg);
+}
+
+div.fadeOut {
+	opacity: 0;
+	pointer-events: none;
+}
+
+div.fadeIn {
+	opacity:1;
+	pointer-events: all;
+}
+
+@keyframes shakePlayer {
+	0%{
+		transform: rotateY(180deg) translateY(0px);
+	}
+	15%{
+		transform: rotateY(180deg) translateY(-50px);
+	}
+	30%{
+		transform: rotateY(180deg) translateY(0px);
+	}
+	45%{
+		transform: rotateY(180deg) translateY(-50px);
+	}
+	60%{
+		transform: rotateY(180deg) translateY(0px);
+	}
+	75%{
+		transform: rotateY(180deg) translateY(-50px);
+	}
+	90%{
+		transform: rotateY(180deg) translateY(0px);
+	}
+	100%{
+		transform: rotateY(180deg) translateY(-50px);
+	}
+}
+
+@keyframes shakeComputer {
+	0%{
+		translateY(0px);
+	}
+	15%{
+		translateY(-50px);
+	}
+	30%{
+		translateY(0px);
+	}
+	45%{
+		translateY(-50px);
+	}
+	60%{
+		translateY(0px);
+	}
+	75%{
+		translateY(-50px);
+	}
+	90%{
+		translateY(0px);
+	}
+	100%{
+		translateY(-50px);
+	}
+}
