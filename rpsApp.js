@@ -62,7 +62,7 @@ const game = () => {
         const winner = document.querySelector(".winner");
         //checking for tie
         if (playerChoice === computerChoice) {
-            winner.textContent = "It is a tie!";
+            winner.textContent = "It's a tie!";
             return;
         }
         //check for rock
