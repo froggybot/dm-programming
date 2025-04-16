@@ -1,0 +1,286 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>DM Programming</title>
+    <style>
+		.maincont {
+          background-color: Ivory;
+          margin: auto;
+          width: 50%;
+          border: 10px double LemonChiffon;
+          padding: 30px;
+          font-family: "Courier New", monospace;
+		}
+        .headings {
+        	text-align: center;
+            color: Indigo;
+        }
+        .mainhead {
+        	background-color: #fffffa;
+            border: 4px solid LavenderBlush;
+            padding: 10px;
+            text-align: center;
+            text-shadow: 0px 3px 2px Thistle;
+            font-size: 230%;
+            color: Indigo;
+            box-shadow: 0px 5px 3px Thistle;
+        }
+        .center {
+            background-color: #fffffa;
+            border: 3px solid LavenderBlush;
+            padding: 8px;
+            box-shadow: 0px 3px 2px Thistle;
+        	text-align: center;
+        }
+        .rps {
+            width: 150px;
+	        height: 50px;
+	        border: 5px solid Lavender;
+	        border-radius: 5px;
+	        color: Indigo;
+	        background-color: LavenderBlush;
+            font-family: "Courier New", monospace;
+        }
+	</style>
+</head>
+<body>
+    <div class="bckgrd">
+        <div class="main">
+            <button class="rps" onclick="location.href='rockpaperscissors.html'">Play Rock, Paper, Scissors</button>
+            <h1 class="headin">Digital Media Programming</h1>
+
+            <h2 class="headin2">Welcome to the experiment page!</h2>
+
+            <p id="jim"></p>
+            <p>He has been coding for <span id="jimExp"></span> years.</p>
+
+            <button id="jimSkill">His skill level is...</button>
+            <br>
+            <br>
+            <br>
+	        <p id="reaction"></p>
+            <br>
+            <p id="introducing"></p>
+            <p>I've only been coding for <span id="laniExp"></span> years.</p>
+            <p>I have experience with <span id="laniCodeLangs"></span>.</p>
+            <br>
+            <p>What about you reader, how long have you been coding?</p>
+            <label for="readerExp"> In years? </label>
+            <input type="text" id="readerExp">
+            <button onclick="reactToReader()">Submit</button>
+            <p id="result"></p>
+            <p>Are you going to keep coding?</p>
+            <input type="text" id="readerResponse">
+            <button type="button" onclick="respondToReader2()">Submit</button>
+            <p id="response"></p>
+            <br>
+            <h3 class="headin3">Coder Review</h3>
+            <p id="coderReview" class="coderRevi"></p>
+            <br>
+            <h3 class="headin4">Page Info</h3>
+            <p id="pageInfo" class="pageInf"></p>
+        </div>
+    </div>
+    
+
+
+    <script>
+        //css change using js and variables
+        const body = document.querySelector(".bckgrd");
+        body.style.backgroundColor = "Lavender";
+
+        const content = document.querySelector(".main");
+        content.classList.add("maincont");
+        
+        const head = document.querySelector(".headin");
+        head.classList.add("mainhead");
+        const head2 = document.querySelector(".headin2");
+        head2.classList.add("headings");
+        const head3 = document.querySelector(".headin3");
+        head3.classList.add("headings");
+        const head4 = document.querySelector(".headin4");
+        head4.classList.add("headings");
+        
+        const codeRev = document.querySelector(".coderRevi");
+        codeRev.classList.add("center");
+        const pageInf = document.querySelector(".pageInf");
+        pageInf.classList.add("center");
+        
+        
+        
+        
+        // this is an object constructor function
+        function Person(first, last, age, skill) 
+        {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.skill = skill;
+        }
+
+        //this is an object variable
+        const jimJava = new Person ("Jimothy", "JavaScript", 52, "professional");
+       
+        //adding an object method to the object constructor function
+        Person.prototype.fullName = function () 
+        {
+            return this.firstName + " " + this.lastName;
+        }
+
+        //display jimjava introduction
+        document.getElementById("jim").innerHTML =
+        `${jimJava.fullName()} is ${jimJava.age} years old.`;
+        console.log(jimJava)
+        
+        //using the number method valueOf()
+        document.getElementById("jimExp").innerHTML = 
+        (20 + 9).valueOf();
+        
+        /*events, onclick button will display jimJavas skill level,
+        onmouseout and onmouseover reactions will appear
+        */
+        document.getElementById("jimSkill").onclick = function() {skillBtn()};
+        function skillBtn() 
+        {
+        let text = jimJava.skill;
+        //using the string method toUpperCase()
+		let emphasis = text.toUpperCase();
+        document.getElementById("jimSkill").innerHTML = emphasis + "!!!";
+        }
+        
+        document.getElementById("jimSkill").onmouseout = function() {react1()};
+        function react1()
+        {
+        document.getElementById("reaction").innerHTML = "Oh.";
+        }
+        
+        document.getElementById("reaction").onmouseover = function() {react()};
+        function react()
+        {
+        document.getElementById("reaction").innerHTML = "Oh. Oh wow... O_O";
+        }
+
+		//adding another object variable using the object constructor
+        const laniKen = new Person ("Lani", "Kennedy", 21, "novice");
+        console.log(laniKen)
+
+        //concatenated string variable
+        let laniIntro =
+        `I'm ${laniKen.fullName()}, the creator of this page! I'm still a ${laniKen.skill}.`
+        //output concatenated string to page and type to console
+        document.getElementById("introducing").innerHTML = 
+        laniIntro;
+        console.log(typeof laniIntro)
+
+		//using the number method valueOf()
+        document.getElementById("laniExp").innerHTML = 
+        (1 + 0.5).valueOf();
+        
+        //this is an array
+        const laniLangs = ["HTML"," CSS"," JavaScript"];
+        //outputting and displaying coding languages to page using toString() array method 
+        document.getElementById("laniCodeLangs").innerHTML = laniLangs.toString();
+        
+        //reacting to readers response using switch statement
+        function reactToReader() 
+        {
+        const input = document.getElementById('readerExp').value;
+        let result;
+
+            switch (input) 
+            {
+                case '0.5':
+                case '1':
+                case '1.5':
+                case '2':
+                    result = `Oh, fun! You're sort of a beginner like me. :D`;
+                    break;
+                case '2.5':
+                case '3':
+                case '3.5':
+                case '4':
+                case '4.5':
+                case '5':
+                case '6':
+                case '7':
+                case '8':
+                case '9':
+                case '10':
+                    result = `Wow, you've been doing this a while, huh? ^-^`;
+                    break;
+                default:
+                    result = 'Cool! Good for you reader B)';
+            }
+
+        document.getElementById('result').innerText = result;
+        }
+
+        //reacting to readers second response using if else statement
+        function respondToReader2() 
+        {
+        const readerResponse = document.getElementById('readerResponse').value;
+        let response = document.getElementById('response');
+
+            if (readerResponse === "No") 
+            {
+            response.textContent = ":( Yeah I get it. Coding is hard T-T";
+            response.style.color = "blue";
+            } 
+            else if (readerResponse === "no") 
+            {
+            response.textContent = ":( Yeah I get it. Coding is hard T-T";
+            response.style.color = "blue";
+            }
+            else 
+            {
+            response.textContent = "Best of luck! :)";
+            response.style.color = "green";
+            }
+        
+        }
+        
+		//adding another object variable using the object constructor
+        const readerRead = new Person ("Reader", " ", "unknown", "unknown");
+
+        //using for in loop inside a while loop to display array of person object variables
+        {
+            let coderArray = [jimJava, laniKen, readerRead];
+            let index = 0;
+            let txt = "";
+
+            while (index < coderArray.length) 
+            {
+                const obj = coderArray[index];
+  
+                for (let key in obj) 
+                {
+                    if (obj.hasOwnProperty(key)) 
+                    {
+                        txt += obj[key] + " // ";          
+                    }
+                }
+                txt = txt + "<br>"
+                document.getElementById('coderReview').innerHTML = txt;
+                index++;
+            }
+        }
+        
+        //adding a new object and displaying objects properties using values() object method
+        {
+            let thisPage = {
+            name: "Lani's Digital Media Programming",
+            purpose: "experimental",
+            status: "in progress",
+            creationDate: "made in 2025"
+            };
+
+            let txt = Object.values(thisPage);
+            document.getElementById('pageInfo').innerHTML = txt;
+        }
+       
+    </script>
+
+</body>
+</html>
